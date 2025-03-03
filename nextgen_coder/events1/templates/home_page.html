@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bright Futures - Coaching Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffc4c4;
+            padding: 10px 20px;
+            position: relative;
+            height: 100px;
+        }
+        .navbar h1 {
+            color: rgb(0, 0, 0);
+            margin: 0;
+            /* text-align: justify; */
+        }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar ul li {
+            margin: 0 15px;
+        }
+        .navbar ul li a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .join-button {
+            background-color: #850E35;
+            color: rgb(255, 255, 255);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .join-button:hover {
+            background-color: #EE6983;
+        }
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .menu-toggle div {
+            width: 25px;
+            height: 3px;
+            background-color: #EE6983;
+            margin: 4px 0;
+        }
+        @media (max-width: 768px) {
+            .navbar ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                background-color: #850E35;
+                width: 100%;
+                padding: 10px 0;
+            }
+            .navbar ul.active {
+                display: flex;
+            }
+            .menu-toggle {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <h1 style="padding-left: 90px;font-size: 30px;">Bright Futures</h1>
+        <div class="menu-toggle" id="menuToggle">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <ul id="navLinks">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><button class="join-button">Join Us</button></li>
+        </ul>
+    </div>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+
+    
+    <!-- flex scetion -->
+    
+      <style>
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #f0f0f0;
+        }
+        .section {
+          display: flex;
+          height: 100vh;
+          background-color: #fff;
+          text-align: left;
+        }
+        .half {
+          width: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-align: left;
+          padding: 50px;
+        }
+        .half.text-content {
+          background-color: #000000;
+          color: white;
+          
+          flex-direction: column;
+        }
+        .half.text-content h1 {
+          font-size: 3rem;
+          margin-bottom: 20px;
+        }
+        .half.text-content h2 {
+          font-size: 2rem;
+          margin-bottom: 10px;
+        }
+        .half.text-content p {
+          font-size: 1.2rem;
+          line-height: 1.5;
+          margin-bottom: 30px;
+        }
+        .cta-button {
+          padding: 15px 30px;
+          background-color: #EE6983;
+          color: #000000;
+          border: none;
+          font-size: 1.2rem;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+          border-radius: 50px;
+        }
+        .cta-button:hover {
+          background-color: #FFC4C4;
+          color: white;
+        }
+        .half.image-slider {
+          background-color: #000000;
+          color: white;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        /* Slider styles */
+        .slider {
+          width: 80%;
+          position: relative;
+          overflow: hidden;
+          border-radius: 10px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .slides {
+          display: flex;
+          transition: transform 0.5s ease-in-out;
+          width: 300%;
+        }
+        .slides img {
+          width: 100%;
+          height: 100%;
+        }
+        .slider-buttons {
+          position: absolute;
+          top: 50%;
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          transform: translateY(-50%);
+        }
+        .slider-buttons button {
+          background-color: rgba(0, 0, 0, 0.5);
+          border: none;
+          color: white;
+          font-size: 2rem;
+          cursor: pointer;
+          padding: 10px;
+        }
+    
+        /* Responsive styles */
+        @media (max-width: 768px) {
+          .section {
+            flex-direction: column;
+            height: auto;
+          }
+          .half {
+            width: 100%;
+            padding: 20px;
+          }
+          .half.text-content h1 {
+            font-size: 2rem;
+          }
+          .half.text-content h2 {
+            font-size: 1.5rem;
+          }
+          .half.text-content p {
+            font-size: 1rem;
+          }
+          .cta-button {
+            padding: 10px 20px;
+            font-size: 1rem;
+          }
+          .slider {
+            width: 90%;
+          }
+        }
+    
+        @media (max-width: 480px) {
+          .half.text-content h1 {
+            font-size: 1.5rem;
+          }
+          .half.text-content h2 {
+            font-size: 1.2rem;
+          }
+          .half.text-content p {
+            font-size: 0.9rem;
+          }
+          .cta-button {
+            padding: 8px 16px;
+            font-size: 0.9rem;
+          }
+          .slider {
+            width: 95%;
+          }
+        }
+      </style>
+    </head>
+    <body>
+    
+      <section class="section">
+        <!-- Text Content -->
+        <div class="half text-content">
+          <h3 style="padding-right: 290px;color: #EE6983;">Achieve Excellence</h3>
+          <h1 style="color: #ccc;">Bright Futures Await</h1>
+          <p style="padding-left: 20px;">Unlock your child's full potential with our expert guidance.</p>
+          <button class="cta-button" onclick="enrollNow()">Enroll Now</button>
+        </div>
+    
+        <!-- Image Slider -->
+        <div class="half image-slider">
+          <div class="slider">
+            <div class="slides">
+              <img src="https://images.pexels.com/photos/4101143/pexels-photo-4101143.jpeg?auto=compress&cs=tinysrgb&w=600">
+              <img src="https://images.unsplash.com/photo-1504805572947-34fad45aed93?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGlmZSUyMGNvYWNofGVufDB8fDB8fHww" alt="Image 2">
+              <img src="https://img.freepik.com/free-vector/online-tutorials-concept_52683-37480.jpg?uid=R129680917&ga=GA1.1.2134572565.1739536943&semt=ais_hybrid" alt="Image 3">
+            </div>
+            <div class="slider-buttons">
+              <button onclick="prevSlide()">&#10094;</button>
+              <button onclick="nextSlide()">&#10095;</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <script>
+        let currentSlide = 0;
+        const slides = document.querySelector('.slides');
+        const totalSlides = document.querySelectorAll('.slides img').length;
+    
+        function showSlide(slideIndex) {
+          const slideWidth = document.querySelector('.slider').offsetWidth;
+          slides.style.transform = `translateX(${-slideWidth * slideIndex}px)`;
+        }
+    
+        function nextSlide() {
+          currentSlide = (currentSlide + 1) % totalSlides;
+          showSlide(currentSlide);
+        }
+    
+        function prevSlide() {
+          currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+          showSlide(currentSlide);
+        }
+    
+        function enrollNow() {
+          alert("Redirecting to Enrollment Page");
+          // Add redirect functionality here
+        }
+    
+        // Auto-play slides every 3 seconds
+        setInterval(nextSlide, 3000);
+      </script>
+
+
+    <!-- infinite logo scroll -->
+    <!-- top courses -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fcf5ee;
+            color: #333;
+        }
+
+        .courses-section {
+            padding: 40px 20px;
+        }
+
+        h1 {
+            text-align: left;
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .courses-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .main-course, .side-courses {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .main-course {
+            width: 60%;
+            position: relative;
+        }
+
+        .main-course img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .main-course .details {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: #fff;
+        }
+
+        .main-course .details .category {
+            background-color: #8b1c31;
+            padding: 5px 0px;
+            border-radius: 20px;
+            font-size: 14px;
+            display: inline-block;
+        }
+
+        .main-course .details .rating {
+            background-color: #fff;
+            color: #333;
+            padding: 5px;
+            font-size: 14px;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 10px 0;
+        }
+
+        .main-course .details h2 {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .main-course .details .instructor {
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            margin-top: 5px;
+        }
+
+        .main-course .details .instructor img {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .main-course .price-tag {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background-color: #f05a5b;
+            padding: 10px 20px;
+            color: #fff;
+            font-size: 18px;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .side-courses {
+            width: 35%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .side-course {
+            display: flex;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .side-course .course-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .side-course .course-info img {
+            width: 100px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-right: 15px;
+        }
+
+        .side-course .course-info .course-category {
+            background-color: #8b1c31;
+            color: #fff;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            /* box-sizing: content-box; */
+        }
+
+        .side-course .course-info .course-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .side-course .course-info .course-details h3 {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .side-course .course-info .course-details p {
+            font-size: 14px;
+            color: #777;
+        }
+
+        .side-course .course-info .rating {
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .side-course .course-info .rating img {
+            width: 18px;
+            margin-right: 5px;
+        }
+
+        .side-course .price-tag {
+            background-color: #f05a5b;
+            padding: 10px 20px;
+            color: #fff;
+            font-size: 18px;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 1024px) {
+            .main-course {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .side-courses {
+                width: 100%;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .main-course .details h2 {
+                font-size: 24px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .courses-container {
+                flex-direction: column;
+            }
+
+            .main-course {
+                width: 100%;
+            }
+
+            .side-courses {
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: 28px;
+            }
+
+            .main-course .details h2 {
+                font-size: 20px;
+            }
+
+            .main-course .price-tag,
+            .side-course .price-tag {
+                font-size: 16px;
+                padding: 8px 15px;
+            }
+
+            .side-course .course-info img {
+                width: 60px;
+                height: 60px;
+            }
+
+            .side-course .course-info .course-details h3 {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="courses-section">
+    <h1>Top Courses</h1>
+    <div class="courses-container">
+        <!-- Main Course -->
+        <div class="main-course">
+            <img src="https://res.cloudinary.com/dmuecdqxy/image/upload/v1740234694/uce644icshylgadopzcg.jpg" alt="Main Course">
+            <div class="details">
+                <span class="category">Math Support</span>
+                <span class="rating">4.9</span>
+                <h2>Expert Coaching Programs</h2>
+                <div class="instructor">
+                    <img src="https://media.gettyimages.com/id/1336832660/photo/male-teenage-student-in-yellow-background-stock-photo.jpg?s=612x612&w=0&k=20&c=24LklaK0hoPbe7bGCSHZPbaWJKV6yH0F1b8lABbOS30=" alt="Instructor">
+                    Siddhant Awasthi
+                </div>
+            </div>
+            <div class="price-tag">$24</div>
+        </div>
+
+        <!-- Side Courses -->
+        <div class="side-courses">
+            <!-- Course 1 -->
+            <div class="side-course">
+                <div class="course-info">
+                    <img src="https://res.cloudinary.com/dmuecdqxy/image/upload/v1740234694/lomucfrykkxe07rcul6f.jpg" alt="Math Support Course">
+                    <div class="course-details">
+                        <span class="course-category">Math Support</span>
+                        <h3>Comprehensive Learning Options</h3>
+                        <p>Sadou Wulf Kindler</p>
+                        <div class="rating">
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACUCAMAAAAj+tKkAAAAkFBMVEX/////zAD/3VX/5oD/1Cr/31z/ygD/3ln/54P/3VL/yAD/5Xr/6Ib/3E3/5n3//fX/++///vr/2kL/0Bv/5HP/++v/4W3/32H/+eT/9dj/8Lv/6a7/8cT/4Wj/1FD/1Dv/0UH/88//6I3/66H/65r/56T/zjD/2Wr/117/4YP/77D/zCH/3HP/3Xv/44//5Zvc9EaNAAAJUklEQVR4nM2cfUOyPBTGGyKwYKgDQU0jzMrs7ft/u2eACmxnY+juB86flfDr2nVeGODDg9GYPydzs0c0HJtHshmaQRWLL8e1FkNTKOLpEU3piCWcvSA0xbvZ0BzSeEIM0BqvCwsBGeB4JWQOLACt0bqwELAAxOnQJHA8OWfAkbpwdkQXQByP0YWlAyvAcbrwHdWA2BqaRozKgWfAEUo4e0ZNwPG5cOO0AC26HZqIi7MDr4DYHZqoHZtHDnBkEi4uDqwBcTImF26RAGiREUm4eAEA8W48o/X2EQC0aD401zXeEQQ4nqFmg0DA0bhw9iwDHEk7aTqwBTiWWth0YBtwHC68dmERcBQuPA/SEsDJ8C7kBGwDjsGFNlIB4unQfJtHJeDgEi44BwqAZDJsR97wfDzg0In83A0YD8m35R0oAg471IgCioA4GY5PdCAAOKALF0dHC9AfKpFz0YEQ4HAufAH4IEC8G4ZvC/FBgBYZRMIZ5EAJYDjEUJODfCDgMC7MQD4YcIjRGmgicsABJFx8wHwSQPy/DzVwCksB/792slgsVvnmsE/6Au72h9fNer74d0rOlut8ezpMkjj2w9Bz4SSWAVqTSej7cRLvXzfbfLU0yzlfb18P+2Di+344OUfw3geQXj8XFgfx9ofDabu6tzoulqt1fjoEMYswvJ7iHH6kD0gSj/t0GPrFYfdvm3y9vOEpgtl6e2KiTeKmaO3wUm1APIUPUS27H+wPp02+1NJsvmQp8Oqx/42BCaK1I8DagLx+opxMz8Rny75eLSULP2Nkp9e9V6Kpj3cN/ppYAkj8DsBazziesGxnnPWqz5ZLlgJ7v4wOzbjwIBsCA6tgQDVloScL73DKCzm3mQVkgF4EqVhrBECS9uJrksaWzer7m4OyxJ94txzGI92A+CY6zwuTDDlvxSIzQsboxsENiKFgQ+G62L+BLghTEjlnvsuNyujd7a+j53cA9jRgIZ032WWVuZ8uiXK9fLStZNJPyICvhtzulhX0wguCOGUri9p89c1e9qt3wta6D2OmArT6ZJ8XTNysLgwNPja/N07hIJL4+jp6thyQxNqHCSZx2joSN5+1NgkcZGepp8noJVJAstPk8wLfylpF1RFu2a+/eLtnaTzROUG7KTcAsVYFZAUldiOuoH6txV63FQhRVBSfbpd7TRs2b+RoGJBlBRYvv77A+Xv9Ds2gNms0XUkTNlanBuxswUUxtoBTOu+AfnJCVsRxojZk04ZTzQVmR9wRaNqQ8zHCF8kcjyKSqIp44AqA8hnwrB2FB17kvEj5Hh5WUkLk2CSVF5/gqsUVUKFd1chkfCs5HyN8lhIWOma7shUBJ40velye+pBUQPbpJBPTUU+/IuZyDcvPo2waQ4he0nryCK6AXrORSfg6r0/UGlY6pkDDDkgTEBjyWSNLM4nvrnzPyvWtAtzY5Y7jRFNxqshqQMxXQM/z08zpOrBz1LpcXnZqWEaG20Xci6+AXAsusqJLu5LvWevKrtgY0iIsi49fG7KqhsUjog0DFo3sqAFX8H1obzdINk+hsFk6XNbaoyUgdmtjgo1MwnfssdGw+NYmZEcuL2lKILtUMLxqZ+lpVx7lu992je4qVxG9lEWc2dCZVgZkjcwCG5mM76MXHtPwpxchY7SnYXEdau2KUu7DbVbO99N/u6vPKlcnQewSO0uDcIeljUzK1xuPafjZlxAVOiZE0chkfJ+3bRf+9l3lyLYxskjWb3kZ3014LHppyOhsm04d23UZo3763sH38PCnW7FLOtvOXDYYUtZLGCS1Nevz3+18bJUld0MgOhbYcov+4pYDg0uoxlo/3sXXuKTvprNtYhWAKMKXsd91SYeOzlM3gzpUq9yiYwa0KkBku1aNiKnCkPet71lDGZ3NRWZdABGpCdmP2GLLGO/WryQUNYwEumqBL4D1ItdrDRSf+9cXJoToznxnQBS5lhiYv5Az9kZCY+MG1K6qME1AlAGA7Le4qaPBNybOGkrpygrTAmzbsGlIfJ4jvoy+0bF1lHSMz+UAEW/DmnHqsiLuGL6DvFHRsQpz0asGtGEJLzqavj2bK/Wj9alri8E2rAInmtdH2vGEVIANbRpJKrFhGaRjA6F3fKoUxDCgUA0bYfzJTEtrgduAKhvSk2FAxQq3vNYCRJmUkNwxBEIxVwC2TtwGREQGaPrNu1wO2E4FDtCW2pCaBXyV5ghtn5cDlNuQauxj9YgfKSB3Xh4QUQmh4TR2NflEQJkNycEk35LKDNgNCE5exR62ScB1BvOJ3UwElNQas+/dbSUWFM8LACIq/llxG8VklrzBgEANgQARhjQ0+two3ImhYQAEBG1o8hXkxRHiA1cOBAQnL/JqDnAGCgg2CRgQqoYkNPcE3BJqdHATkwAi8S/x1BzgFgAEF1gOCLQ8aq7O/IlLLJvnZYDAIlNzQ/VOBJTNAFJAR2g6BmdWsdFJ5zwpIIr4PyV7U3xL0YDSSVkOiPi+Y+4dhFzXgGpAvinj1FSWnHgLKq7WVID85OWayhI+iaUG7ALkbGhqd2HBjdOqHQM1IFcNiaE0nh3bgCo+y1Lvabeyy9RQzSWxwoAWJjvw2RvYhqZe7l23Gp3CgJgmbIR6elbdumhOXnhqZgdp0wSUtOBSPbIpH9mYP6ke7GjWGmoG8LdpQSkf3b3VH/lTPNzS+BcNXXqmUfcCE/rWUmP5J3/EowFoJo2bBoRbHJkehNlu8SlLl7oaEt8E37wWEK6AhB7AC7TVr0TFqw3NvGDe2PwF8fCv1Oqrb/jW+9UoxMRQXXdiwIBMPWVDzX/AmnP9uIlufE1iscIQ4neeIT8CReeyFia+g23xHUn4MJ1olYntUVTxbEMTzW7+DBsQkzTXdNBsK77/VNnFxFC9hg1Ik15FdsM/sFbdAcDx/V+Kek7i1hiCKd307POzDWfFcvLC0/t3kE5VJ27y0d1NHeDU7n/UUBpX+0aNGYvYpxt7/PKtpWLRlgx0Y9I2IHXvSrzfrEaMzKQxalYYkv3dOSEtG/2P+eb+77GYobrCEPJp4JuI5z9fTm1D+97DFXdwzjUr+zV0mbj+PKsYEde+txu/RtWMpdPV9GOdXmx49w7SZ5SV6n0avoOff5f9L7v70nPHKgym2l1NPxZ5WRbpnWm8JNiiH//oDfpt8bBxeN8x1oRa5tW7BJsiOh/u/g+ys7tVqi1z0gAAAABJRU5ErkJggg==" alt="Rating"> 4.9
+                        </div>
+                    </div>
+                </div>
+                <div class="price-tag">$38</div>
+            </div>
+
+            <!-- Course 2 -->
+            <div class="side-course">
+                <div class="course-info">
+                    <img src="https://res.cloudinary.com/dmuecdqxy/image/upload/v1740234695/wgtzypbr3hs7skowuanh.jpg" alt="Science Exploration">
+                    <div class="course-details">
+                        <span class="course-category">Science Exploration</span>
+                        <h3>Build Lifelong Skills</h3>
+                        <p>Noori El Mansur</p>
+                        <div class="rating">
+                            <img src="data:image/png;base64,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" alt="Rating"> 4.7
+                        </div>
+                    </div>
+                </div>
+                <div class="price-tag">$22</div>
+            </div>
+
+            <!-- Course 3 -->
+            <div class="side-course">
+                <div class="course-info">
+                    <img src="https://res.cloudinary.com/dmuecdqxy/image/upload/v1740234695/dsxfvhn2isin2b07tkg5.jpg" alt="Arts & Crafts">
+                    <div class="course-details">
+                        <span class="course-category">Arts & Crafts</span>
+                        <h3>Engaging Extracurricular Activities</h3>
+                        <p>Sadou Wulf Kindler</p>
+                        <div class="rating">
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKAAAACUCAMAAAAj+tKkAAAAkFBMVEX/////zAD/3VX/5oD/1Cr/31z/ygD/3ln/54P/3VL/yAD/5Xr/6Ib/3E3/5n3//fX/++///vr/2kL/0Bv/5HP/++v/4W3/32H/+eT/9dj/8Lv/6a7/8cT/4Wj/1FD/1Dv/0UH/88//6I3/66H/65r/56T/zjD/2Wr/117/4YP/77D/zCH/3HP/3Xv/44//5Zvc9EaNAAAJUklEQVR4nM2cfUOyPBTGGyKwYKgDQU0jzMrs7ft/u2eACmxnY+juB86flfDr2nVeGODDg9GYPydzs0c0HJtHshmaQRWLL8e1FkNTKOLpEU3piCWcvSA0xbvZ0BzSeEIM0BqvCwsBGeB4JWQOLACt0bqwELAAxOnQJHA8OWfAkbpwdkQXQByP0YWlAyvAcbrwHdWA2BqaRozKgWfAEUo4e0ZNwPG5cOO0AC26HZqIi7MDr4DYHZqoHZtHDnBkEi4uDqwBcTImF26RAGiREUm4eAEA8W48o/X2EQC0aD401zXeEQQ4nqFmg0DA0bhw9iwDHEk7aTqwBTiWWth0YBtwHC68dmERcBQuPA/SEsDJ8C7kBGwDjsGFNlIB4unQfJtHJeDgEi44BwqAZDJsR97wfDzg0In83A0YD8m35R0oAg471IgCioA4GY5PdCAAOKALF0dHC9AfKpFz0YEQ4HAufAH4IEC8G4ZvC/FBgBYZRMIZ5EAJYDjEUJODfCDgMC7MQD4YcIjRGmgicsABJFx8wHwSQPy/DzVwCksB/792slgsVvnmsE/6Au72h9fNer74d0rOlut8ezpMkjj2w9Bz4SSWAVqTSej7cRLvXzfbfLU0yzlfb18P+2Di+344OUfw3geQXj8XFgfx9ofDabu6tzoulqt1fjoEMYswvJ7iHH6kD0gSj/t0GPrFYfdvm3y9vOEpgtl6e2KiTeKmaO3wUm1APIUPUS27H+wPp02+1NJsvmQp8Oqx/42BCaK1I8DagLx+opxMz8Rny75eLSULP2Nkp9e9V6Kpj3cN/ppYAkj8DsBazziesGxnnPWqz5ZLlgJ7v4wOzbjwIBsCA6tgQDVloScL73DKCzm3mQVkgF4EqVhrBECS9uJrksaWzer7m4OyxJ94txzGI92A+CY6zwuTDDlvxSIzQsboxsENiKFgQ+G62L+BLghTEjlnvsuNyujd7a+j53cA9jRgIZ032WWVuZ8uiXK9fLStZNJPyICvhtzulhX0wguCOGUri9p89c1e9qt3wta6D2OmArT6ZJ8XTNysLgwNPja/N07hIJL4+jp6thyQxNqHCSZx2joSN5+1NgkcZGepp8noJVJAstPk8wLfylpF1RFu2a+/eLtnaTzROUG7KTcAsVYFZAUldiOuoH6txV63FQhRVBSfbpd7TRs2b+RoGJBlBRYvv77A+Xv9Ds2gNms0XUkTNlanBuxswUUxtoBTOu+AfnJCVsRxojZk04ZTzQVmR9wRaNqQ8zHCF8kcjyKSqIp44AqA8hnwrB2FB17kvEj5Hh5WUkLk2CSVF5/gqsUVUKFd1chkfCs5HyN8lhIWOma7shUBJ40velye+pBUQPbpJBPTUU+/IuZyDcvPo2waQ4he0nryCK6AXrORSfg6r0/UGlY6pkDDDkgTEBjyWSNLM4nvrnzPyvWtAtzY5Y7jRFNxqshqQMxXQM/z08zpOrBz1LpcXnZqWEaG20Xci6+AXAsusqJLu5LvWevKrtgY0iIsi49fG7KqhsUjog0DFo3sqAFX8H1obzdINk+hsFk6XNbaoyUgdmtjgo1MwnfssdGw+NYmZEcuL2lKILtUMLxqZ+lpVx7lu992je4qVxG9lEWc2dCZVgZkjcwCG5mM76MXHtPwpxchY7SnYXEdau2KUu7DbVbO99N/u6vPKlcnQewSO0uDcIeljUzK1xuPafjZlxAVOiZE0chkfJ+3bRf+9l3lyLYxskjWb3kZ3014LHppyOhsm04d23UZo3763sH38PCnW7FLOtvOXDYYUtZLGCS1Nevz3+18bJUld0MgOhbYcov+4pYDg0uoxlo/3sXXuKTvprNtYhWAKMKXsd91SYeOzlM3gzpUq9yiYwa0KkBku1aNiKnCkPet71lDGZ3NRWZdABGpCdmP2GLLGO/WryQUNYwEumqBL4D1ItdrDRSf+9cXJoToznxnQBS5lhiYv5Az9kZCY+MG1K6qME1AlAGA7Le4qaPBNybOGkrpygrTAmzbsGlIfJ4jvoy+0bF1lHSMz+UAEW/DmnHqsiLuGL6DvFHRsQpz0asGtGEJLzqavj2bK/Wj9alri8E2rAInmtdH2vGEVIANbRpJKrFhGaRjA6F3fKoUxDCgUA0bYfzJTEtrgduAKhvSk2FAxQq3vNYCRJmUkNwxBEIxVwC2TtwGREQGaPrNu1wO2E4FDtCW2pCaBXyV5ghtn5cDlNuQauxj9YgfKSB3Xh4QUQmh4TR2NflEQJkNycEk35LKDNgNCE5exR62ScB1BvOJ3UwElNQas+/dbSUWFM8LACIq/llxG8VklrzBgEANgQARhjQ0+two3ImhYQAEBG1o8hXkxRHiA1cOBAQnL/JqDnAGCgg2CRgQqoYkNPcE3BJqdHATkwAi8S/x1BzgFgAEF1gOCLQ8aq7O/IlLLJvnZYDAIlNzQ/VOBJTNAFJAR2g6BmdWsdFJ5zwpIIr4PyV7U3xL0YDSSVkOiPi+Y+4dhFzXgGpAvinj1FSWnHgLKq7WVID85OWayhI+iaUG7ALkbGhqd2HBjdOqHQM1IFcNiaE0nh3bgCo+y1Lvabeyy9RQzSWxwoAWJjvw2RvYhqZe7l23Gp3CgJgmbIR6elbdumhOXnhqZgdp0wSUtOBSPbIpH9mYP6ke7GjWGmoG8LdpQSkf3b3VH/lTPNzS+BcNXXqmUfcCE/rWUmP5J3/EowFoJo2bBoRbHJkehNlu8SlLl7oaEt8E37wWEK6AhB7AC7TVr0TFqw3NvGDe2PwF8fCv1Oqrb/jW+9UoxMRQXXdiwIBMPWVDzX/AmnP9uIlufE1iscIQ4neeIT8CReeyFia+g23xHUn4MJ1olYntUVTxbEMTzW7+DBsQkzTXdNBsK77/VNnFxFC9hg1Ik15FdsM/sFbdAcDx/V+Kek7i1hiCKd307POzDWfFcvLC0/t3kE5VJ27y0d1NHeDU7n/UUBpX+0aNGYvYpxt7/PKtpWLRlgx0Y9I2IHXvSrzfrEaMzKQxalYYkv3dOSEtG/2P+eb+77GYobrCEPJp4JuI5z9fTm1D+97DFXdwzjUr+zV0mbj+PKsYEde+txu/RtWMpdPV9GOdXmx49w7SZ5SV6n0avoOff5f9L7v70nPHKgym2l1NPxZ5WRbpnWm8JNiiH//oDfpt8bBxeN8x1oRa5tW7BJsiOh/u/g+ys7tVqi1z0gAAAABJRU5ErkJggg==" alt="Rating"> 4.5
+                        </div>
+                    </div>
+                </div>
+                <div class="price-tag">$38</div>
+            </div>
+            </div>
+    </div>
+</div>
+<!-- why we choose -->
+ 
+
+    <!-- real story -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fcf5ee;
+        }
+
+        .success-stories-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 50px 0;
+        }
+
+        .container {
+            display: flex;
+            width: 80%;
+            max-width: 1200px;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .image-container {
+            width: 50%;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .content {
+            background-color: #8b1c31;
+            width: 50%;
+            padding: 40px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .content h1 {
+            font-size: 40px;
+            margin-bottom: 10px;
+            line-height: 1.2;
+            font-weight: bold;
+        }
+
+        .content h2 {
+            font-size: 18px;
+            margin-bottom: 40px;
+            font-style: italic;
+            font-weight: normal;
+        }
+
+        .content p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .content .author {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .content .author-title {
+            font-size: 16px;
+            color: #d4d4d4;
+            margin-top: 5px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .image-container, .content {
+                width: 100%;
+            }
+
+            .content {
+                padding: 20px;
+                text-align: center;
+            }
+
+            .content h1 {
+                font-size: 32px;
+            }
+
+            .content h2 {
+                font-size: 16px;
+            }
+
+            .content .author {
+                font-size: 18px;
+            }
+
+            .content .author-title {
+                font-size: 14px;
+            }
+        }
+    </style>
+
+    <div class="success-stories-container">
+        <div class="container">
+            <div class="image-container">
+                <img src="https://images.unsplash.com/photo-1599687351724-dfa3c4ff81b1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHN0dWRlbnR8ZW58MHx8MHx8fDA%3D" alt="Student Success Story">
+            </div>
+            <div class="content">
+                <h2>What Students Say</h2>
+                <h1>Real Success Stories</h1>
+                <p>I improved my grades significantly after joining!</p>
+                <div class="author">Michael T.</div>
+                <div class="author-title">High School Student</div>
+            </div>
+        </div>
+    </div>
+      <!-- testinomial -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFF5E4;
+            color: #000000;
+        }
+
+        h1 {
+            text-align: left;
+            margin-bottom: 40px;
+            font-size: 36px;
+            color: #000000;
+            font-weight: bold;
+            /* text-emphasis-color: black; */
+        }
+
+        .testimonials {
+            padding: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .testimonial-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            width: 280px;
+            margin: 20px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .testimonial-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .testimonial-quote {
+            font-style: italic;
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-person {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .testimonial-person img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .name {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .title {
+            font-size: 14px;
+            color: #777;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .testimonial-btn {
+            background-color: #b52337;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .testimonial-btn:hover {
+            background-color: #a51929;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .testimonial-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .testimonial-card {
+                width: 90%;
+            }
+        }
+    </style>
+
+    <section class="testimonials">
+        <h1>What People Say</h1>
+        <div class="testimonial-container">
+            <div class="testimonial-card">
+                <div class="testimonial-quote">“Bright Futures changed my life and study habits. Highly recommended!”</div>
+                <div class="testimonial-person">
+                    <img src="https://media.istockphoto.com/id/2155547897/photo/confident-student-in-urban-surroundings-copy-space.jpg?s=2048x2048&w=is&k=20&c=KkBdrvpw7EzVO0pOJI_cvv9NgCCyQUta1INs-1cu1E0=" alt="Emily Smith">
+                    <div>
+                        <p class="name">Emily Smith</p>
+                        <p class="title">Middle School Student</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-quote">“My son thrived here; the staff is incredibly supportive!”</div>
+                <div class="testimonial-person">
+                    <img src="https://plus.unsplash.com/premium_photo-1689539137236-b68e436248de?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8cGVyc29ufGVufDB8fDB8fHww" alt="Liam Brown">
+                    <div>
+                        <p class="name">Liam Brown</p>
+                        <p class="title">Parent of a Student</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-quote">“The personalized attention I received made a huge difference!”</div>
+                <div class="testimonial-person">
+                    <img src="https://plus.unsplash.com/premium_photo-1690407617542-2f210cf20d7e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8cGVyc29ufGVufDB8fDB8fHww" alt="Jessica Lee">
+                    <div>
+                        <p class="name">Jessica Lee</p>
+                        <p class="title">College Student</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-quote">“Fantastic coaching helped me excel in exams!”</div>
+                <div class="testimonial-person">
+                    <img src="https://plus.unsplash.com/premium_photo-1671656349322-41de944d259b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGVyc29ufGVufDB8fDB8fHww" alt="Sarah Johnson">
+                    <div>
+                        <p class="name">Sarah Johnson</p>
+                        <p class="title">High School Senior</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="button-container">
+            <button class="testimonial-btn">See More Testimonials</button>
+        </div>
+    </section>
+    <!-- faq -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFF5E4;
+            color: #333;
+            padding: 0px;
+            margin: top;
+            
+        }
+        h1 {
+            font-size: 24px;
+            color: #FF6B6B;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .faq-container {
+            /* padding-top: 40px; */
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding-bottom: 40px;
+        }
+        .faq-item {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            flex-basis: calc(50% - 10px); /* Row layout, 2 items per row */
+            box-sizing: border-box;
+        }
+        .faq-item:hover {
+            background-color: #f1f1f1;
+        }
+        .faq-question {
+            font-weight: bold;
+        }
+        .faq-answer {
+            display: none;
+            padding-top: 10px;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .faq-item {
+                flex-basis: 100%; /* Full width on smaller screens */
+            }
+        }
+    </style>
+
+
+    <h1 style="padding-top: 40px;">FAQ</h1>
+    <div class="faq-container">
+        <div class="faq-item">
+            <div class="faq-question">What courses do you offer?</div>
+            <div class="faq-answer">We offer a variety of courses including HTML, CSS, JavaScript, and more.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Who are the instructors?</div>
+            <div class="faq-answer">Our instructors are experienced professionals in their respective fields.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Do you provide extracurricular activities?</div>
+            <div class="faq-answer">Yes, we offer a range of extracurricular activities.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">What is the enrollment process?</div>
+            <div class="faq-answer">The enrollment process involves filling out a form and submitting it for review.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">What courses do you offer?</div>
+            <div class="faq-answer">We offer a variety of courses including HTML, CSS, JavaScript, and more.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Who are the instructors?</div>
+            <div class="faq-answer">Our instructors are experienced professionals in their respective fields.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Do you provide extracurricular activities?</div>
+            <div class="faq-answer">Yes, we offer a range of extracurricular activities.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">What is the enrollment process?</div>
+            <div class="faq-answer">The enrollment process involves filling out a form and submitting it for review.</div>
+        </div>
+    </div>
+
+    <script>
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const answer = item.querySelector('.faq-answer');
+                answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+    </script>
+
+    <!--footer  -->
+    <section>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Arial', sans-serif;
+            }
+    
+            body {
+                background-color: #f0f0f0;
+                color: #333;
+                padding: 0;
+            }
+    
+            footer {
+                background-color: #000000;
+                color: white;
+                padding: 30px 20px;
+            }
+    
+            .footer-container {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+    
+            .footer-section {
+                width: 48%;
+            }
+    
+            .contact-section h2,
+            .questions-section h2 {
+                font-size: 1.8rem;
+                margin-bottom: 10px;
+            }
+    
+            .contact-section p {
+                font-size: 1rem;
+                margin-bottom: 5px;
+            }
+    
+            .contact-section h3 {
+                font-size: 1.2rem;
+                margin-top: 10px;
+            }
+    
+            form {
+                margin-top: 10px;
+            }
+    
+            input[type="email"], input[type="text"], textarea {
+                width: 100%;
+                padding: 10px;
+                margin: 10px 0;
+                border-radius: 5px;
+                border: none;
+                font-size: 1rem;
+            }
+    
+            textarea {
+                resize: none;
+            }
+    
+            .checkbox-container {
+                display: flex;
+                align-items: center;
+                margin: 10px 0;
+            }
+    
+            .checkbox-container input[type="checkbox"] {
+                margin-right: 10px;
+            }
+    
+            button {
+                background-color: #850E35;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+    
+            button:hover {
+                background-color: #850E35;
+            }
+    
+            .social-media {
+                text-align: center;
+                margin-top: 30px;
+            }
+    
+            .social-media a {
+                margin-right: 10px;
+                font-size: 1.5rem;
+                color: white;
+            }
+    
+            @media screen and (max-width: 768px) {
+                .footer-container {
+                    flex-direction: column;
+                }
+    
+                .footer-section {
+                    width: 100%;
+                    margin-bottom: 20px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+    
+        <!-- Footer Section -->
+        <footer>
+            <div class="footer-container">
+                <!-- Contact Section -->
+                <div class="footer-section contact-section">
+                    <h2>Contact</h2>
+                    <p>Contact No: 123-456-7890</p>
+                    <p>Email: info@mysite.com</p>
+                    <h3><strong>Never Miss a Class</strong></h3>
+                    <form id="subscribe-form">
+                        <input type="email" id="email-subscribe" placeholder="Enter your email" required>
+                        <div class="checkbox-container">
+                            <input type="checkbox" id="newsletter-checkbox">
+                            <label for="newsletter-checkbox">Yes, subscribe to your newsletter</label>
+                        </div>
+                        <button type="button" onclick="subscribeNewsletter()">Subscribe</button>
+                    </form>
+                </div>
+    
+                <!-- Questions Section -->
+                <div class="footer-section questions-section">
+                    <h2>Have Any Questions?</h2>
+                    <form id="questions-form">
+                        <input type="text" id="first-name" placeholder="First Name" required>
+                        <input type="text" id="last-name" placeholder="Last Name" required>
+                        <input type="email" id="email" placeholder="Email" required>
+                        <input type="text" id="subject" placeholder="Subject">
+                        <textarea id="message" rows="4" placeholder="Type your message here..."></textarea>
+                        <button type="button" onclick="sendMessage()">Send</button>
+                    </form>
+                </div>
+            </div>
+    
+            <!-- Social Media Section -->
+            <div class="social-media">
+                <a href="#"><img src="https://via.placeholder.com/20?text=F" alt="Facebook"></a>
+                <a href="#"><img src="https://via.placeholder.com/20?text=T" alt="Twitter"></a>
+                <a href="#"><img src="https://via.placeholder.com/20?text=Y" alt="YouTube"></a>
+            </div>
+        </footer>
+    
+        <script>
+            // Handle subscribe button click
+            function subscribeNewsletter() {
+                const email = document.getElementById("email-subscribe").value;
+                const newsletterCheckbox = document.getElementById("newsletter-checkbox").checked;
+    
+                if (email === "") {
+                    alert("Please enter your email address.");
+                    return;
+                }
+    
+                const subscribeMessage = newsletterCheckbox 
+                    ? `Subscribed successfully with newsletter updates at ${email}!` 
+                    : `Subscribed successfully without newsletter updates at ${email}!`;
+    
+                alert(subscribeMessage);
+            }
+    
+            // Handle send message button click
+            function sendMessage() {
+                const firstName = document.getElementById("first-name").value;
+                const lastName = document.getElementById("last-name").value;
+                const email = document.getElementById("email").value;
+                const subject = document.getElementById("subject").value;
+                const message = document.getElementById("message").value;
+    
+                if (!firstName || !lastName || !email) {
+                    alert("Please fill out all required fields (First Name, Last Name, and Email).");
+                    return;
+                }
+    
+                alert(`Message sent from ${firstName} ${lastName} (${email}) about "${subject}". Message: ${message}`);
+            }
+        </script>
+    </section>
+
+     
+</body>
+</html>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coaching Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #071469;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px; /* Adjust the height as needed */
+            width: auto; /* Maintain aspect ratio */
+
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            text-align: center; /* Center align all h2 headers */
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        /* New Features Section */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .feature {
+            background-color: #828282;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 15px;
+            text-align: center;
+        }
+        footer {
+            background-color: #071469;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-section {
+            width: 48%;
+            margin-bottom: 20px;
+            margin-right:10px;
+        } 
+
+        .footer-section h3 {
+            margin-top: 0;
+        }
+
+        .social-icons img {
+            
+            height: 40px;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+
+        .subscribe input[type="email"] {
+            padding: 8px;
+            width: 70%;
+            margin-right: 0px;
+        }
+
+        .questions input, .questions textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .questions button {
+            padding: 10px 15px;
+            background-color: #5f3eef;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .questions button:hover {
+            background-color: #3a3a31;
+        }
+    </style>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #071469; /* Green background */
+            color: white; /* White text */
+            text-align: center; /* Center text */
+            padding: 20px; /* Padding around the text */
+        }
+
+        h1 {
+            margin: 0; /* Remove default margin */
+            font-size: 2.5em; /* Large font size */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="heading">
+            <h1>NextGen Coders</h1>
+        </div>
+        
